@@ -28,11 +28,34 @@ public class Practice {
     
     // An array list
     //“I want a list of Integers.”
-   //“The variable name will be numbers.”
+   //“The variable name will be nums.”
   //“Create a new, empty ArrayList to store the numbers.”
-    List<Integer>numbers = new ArrayList<>();
-    
+  public static int maxDiffList(List<Integer>nums) {
 
+    if (nums == null || nums.isEmpty()) {
+            throw new IllegalArgumentException("List must not be null or empty");
+        }
+
+     int min = nums.get(0);
+     int max = nums.get(0);
+
+    for (int i = 1; i < nums.size(); i++){
+        //Instead of writing min < numbers.get(i) 
+        int currentNum = nums.get(i);
+        //check for minimum
+        if (currentNum < min){     
+            min = currentNum;
+        }
+        //check for max
+        if (currentNum > max){
+            max = currentNum;
+        }
+        
+    }
+    int maxDiffList = max-min;
+        return maxDiffList;
+
+  }
     // TODO: Implement the other methods from the study guide AND tests for each one
 
     // For each method you are only required to implement it for one of the data

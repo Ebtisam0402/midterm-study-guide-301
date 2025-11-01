@@ -1,5 +1,8 @@
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 
@@ -32,7 +35,7 @@ public class PracticeTest {
         assertEquals(7, actual);
     } 
     
-        @Test
+    @Test
     void testMaxDiffSingleElement() {
         // Arrange
         int[] numbers = {10};
@@ -45,8 +48,37 @@ public class PracticeTest {
         assertEquals(0, actual);
     } 
 
-    // TODO: Make tests for each problem you solve
+    // Testes for array list
+@Test
+void testMaxDiffListSingleElement() {
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(10);
+        int actual = Practice.maxDiffList(numbers);
+        assertEquals(0, actual);
+    }
+
+
+@Test
+void testMaxDiffList_EmptyList() {
+    // Arrange
+    List<Integer> numbers = new ArrayList<>();
+
+    // Act & Assert
+    assertThrows(IllegalArgumentException.class, () -> {
+        Practice.maxDiffList(numbers);
+    });
+}
+
+   
     
+@Test
+void testMaxDiffList_NullList() {
+    // Act & Assert
+    assertThrows(IllegalArgumentException.class, () -> {
+        Practice.maxDiffList(null);
+    });
+}
+
 }
 
 
