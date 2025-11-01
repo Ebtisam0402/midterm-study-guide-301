@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class Practice {
@@ -82,6 +83,47 @@ public class Practice {
 
         return max - min;
     }
+
+        //Max difference of hashmap values
+        public static int maxDiffMapValues(Map<Integer, Integer> map) {
+        if (map == null || map.isEmpty()) {
+            throw new IllegalArgumentException("Map must not be null or empty");
+        }
+
+        // Initialize min and max using the first value
+        int firstValue = map.values().iterator().next();
+        int min = firstValue;
+        int max = firstValue;
+
+        // Loop through all values
+        for (int value : map.values()) {
+            if (value < min) min = value;
+            if (value > max) max = value;
+        }
+
+        return max - min;
+    }
+
+    // max difference of Hash Map keys
+    public static int maxDiffMapKeys(Map<Integer, Integer> map) {
+        if (map == null || map.isEmpty()) {
+            throw new IllegalArgumentException("Map must not be null or empty");
+        }
+
+        // Initialize min and max using the first key
+        int firstKey = map.keySet().iterator().next();
+        int min = firstKey;
+        int max = firstKey;
+
+        // Loop through all keys
+        for (int key : map.keySet()) {
+            if (key < min) min = key;
+            if (key > max) max = key;
+        }
+
+        return max - min;
+    }
+
     // TODO: Implement the other methods from the study guide AND tests for each one
 
     // For each method you are only required to implement it for one of the data
