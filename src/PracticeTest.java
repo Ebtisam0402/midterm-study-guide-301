@@ -1,7 +1,9 @@
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
@@ -49,6 +51,7 @@ public class PracticeTest {
     } 
 
     // Testes for array list
+
 @Test
 void testMaxDiffListSingleElement() {
         List<Integer> numbers = new ArrayList<>();
@@ -69,8 +72,6 @@ void testMaxDiffList_EmptyList() {
     });
 }
 
-   
-    
 @Test
 void testMaxDiffList_NullList() {
     // Act & Assert
@@ -78,6 +79,60 @@ void testMaxDiffList_NullList() {
         Practice.maxDiffList(null);
     });
 }
+
+// Hash set 
+@Test
+void testMaxDiffSetNegative() {
+        // Arrange
+        Set<Integer> numbers = new HashSet<>();
+        numbers.add(-8);
+        numbers.add(-2);
+        numbers.add(-9);
+        numbers.add(-5);
+
+        // Act
+        int actual = Practice.maxDiffSet(numbers);
+
+        // Assert
+        // Largest: -2, Smallest: -9, Difference: -2-(-9) = -11
+        assertEquals(7, actual);
+    }
+
+@Test
+void testMaxDiffSetMixedValues() {
+        Set<Integer> numbers = new HashSet<>();
+        numbers.add(8);
+        numbers.add(-2);
+        numbers.add(9);
+        numbers.add(-5);
+
+        int actual = Practice.maxDiffSet(numbers);
+        assertEquals(14, actual); // 9 - (-5) = 14
+    }
+
+    @Test
+    void testMaxDiffSetSingleValue() {
+        Set<Integer> numbers = new HashSet<>();
+        numbers.add(10);
+
+        int actual = Practice.maxDiffSet(numbers);
+        assertEquals(0, actual); // only one element
+    }
+
+    @Test
+    void testMaxDiffSetEmptySet() {
+        Set<Integer> numbers = new HashSet<>();
+        assertThrows(IllegalArgumentException.class, () -> {
+            Practice.maxDiffSet(numbers);
+        });
+    }
+
+    @Test
+    void testMaxDiffSetNullSet() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Practice.maxDiffSet(null);
+        });
+    }
 
 }
 
