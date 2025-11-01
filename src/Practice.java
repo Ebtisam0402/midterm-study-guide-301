@@ -157,6 +157,24 @@ public class Practice {
     return count;
 }
 
+//Find the difference between the how many odd and even numbers there are in:Values of HashMap
+public static int oddEvenDiff(Map<Integer, Integer>map){
+    int oddCount = 0;
+    int evenCount = 0;
+
+    for (int num : map.values()) {
+        if (num % 2 == 0) {
+            evenCount++;
+        } else {
+            oddCount++;
+        }
+    }
+
+    return Math.abs(oddCount - evenCount);
+}
+
+
+
     // TODO: Implement the other methods from the study guide AND tests for each one
 
     // For each method you are only required to implement it for one of the data
