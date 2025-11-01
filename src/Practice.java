@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Practice {
     /**
      * Returns the difference between the largest and smallest integer in an array.
@@ -6,10 +9,29 @@ public class Practice {
      * @return the difference between the largest and smallest number
      */
     public static int maxDiff(int[] nums) {
-        // TODO: implement this
-        return -1;
-    }
+      // maxDiff with an Array
+        int min = nums [0];
+        int max = nums [0];
 
+        for(int i=1; i < nums.length; i++){
+            if(nums[i] < min){
+                min = nums[i];
+
+             }
+             if (nums[i] > max){
+                max = nums[i];
+             }
+        }
+        int maxDiff = max - min;
+        return maxDiff;
+    }
+    
+    // An array list
+    //“I want a list of Integers.”
+   //“The variable name will be numbers.”
+  //“Create a new, empty ArrayList to store the numbers.”
+    List<Integer>numbers = new ArrayList<>();
+    
 
     // TODO: Implement the other methods from the study guide AND tests for each one
 
