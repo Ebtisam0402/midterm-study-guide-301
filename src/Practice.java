@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class Practice {
     /**
@@ -56,6 +57,31 @@ public class Practice {
         return maxDiffList;
 
   }
+
+  // HashSet
+      public static int maxDiffSet(Set<Integer> nums) {
+        if (nums == null || nums.isEmpty()) {
+            throw new IllegalArgumentException("Set must not be null or empty");
+        }
+
+        // Get the first number from the set
+        // need to use an iterator — because a Set doesn’t have order or positions.
+        int firstValue = nums.iterator().next();
+        int min = firstValue;
+        int max = firstValue;
+
+        // Loop through all numbers in the set
+        for (int num : nums) {
+            if (num < min) {
+                min = num;
+            }
+            if (num > max) {
+                max = num;
+            }
+        }
+
+        return max - min;
+    }
     // TODO: Implement the other methods from the study guide AND tests for each one
 
     // For each method you are only required to implement it for one of the data
