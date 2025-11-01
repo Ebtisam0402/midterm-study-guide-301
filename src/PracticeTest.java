@@ -134,6 +134,48 @@ void testMaxDiffSetMixedValues() {
         });
     }
 
+    @Test
+    void testLongestWordNormalCase() {
+        List<String> words = List.of("apple", "apricot", "avocado", "banana");
+        char letter = 'a';
+
+        String result = Practice.longestWordList(words, letter);
+        assertEquals("avocado", result); // longest word starting with 'a'
+    }
+
+    @Test
+    void testLongestWord_NoMatchingLetter() {
+        List<String> words = List.of("apple", "banana", "cherry");
+        char letter = 'z';
+
+        String result = Practice.longestWordList(words, letter);
+        assertNull(result); // no word starts with 'z'
+    }
+
+    
+    // count words in hashset
+    @Test
+    void testCountWordsHashSetNormal() {
+        Set<String> words = new HashSet<>(Set.of("apple", "banana", "pear", "kiwi", "grape"));
+        int result = Practice.countWordsInRange(words, 4, 6);
+        assertEquals(2, result); // "apple" and "grape"
+    }
+
+
+    @Test
+    void testCountWords_SingleWord_ArrayList() {
+       Set<String> words = Set.of("apple");
+        int result = Practice.countWordsInRange(words, 3, 6); // length >3 and <6
+        assertEquals(1, result); // "apple" length is 5 → counted
+    }
+
+    @Test
+    void testCountWordsHashSetEmpty() {
+        Set<String> words = new HashSet<>();
+        int result = Practice.countWordsInRange(words, 2, 5);
+        assertEquals(0, result);
+    }
+
 }
 
 

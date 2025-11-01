@@ -124,6 +124,39 @@ public class Practice {
         return max - min;
     }
 
+    //Find the longest word that starts with a specific character letter in:Arraylist
+    //// Method just takes a list and the letter to check
+       public static String longestWordList(List<String> words, char letter) {
+        if (words == null || words.isEmpty()) {
+            return null;
+        }
+
+        String longest = null;
+
+        for (String word : words) {
+            if (word != null && !word.isEmpty() && word.charAt(0) == letter) {
+                if (longest == null || word.length() >=longest.length()) {
+                    longest = word;
+                }
+            }
+        }
+
+        return longest;
+    }
+
+//Count how many words are longer than n characters and shorter than m characters in:Hashset
+ public static int countWordsInRange(Set<String> words, int n, int m) {
+    int count = 0;
+
+    for (String word : words) {
+        if (word != null && word.length() > n && word.length() < m) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
     // TODO: Implement the other methods from the study guide AND tests for each one
 
     // For each method you are only required to implement it for one of the data
