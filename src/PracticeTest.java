@@ -1,8 +1,10 @@
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.junit.jupiter.api.Test;
@@ -174,6 +176,47 @@ void testMaxDiffSetMixedValues() {
         Set<String> words = new HashSet<>();
         int result = Practice.countWordsInRange(words, 2, 5);
         assertEquals(0, result);
+    }
+
+    //Find the difference between the how many odd and even numbers there are in:Values of HashMap
+        @Test
+    void testOddEvenDiff_MoreOdd() {
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(1, 5);
+        map.put(2, 7);
+        map.put(3, 2);
+
+        int result = Practice.oddEvenDiff(map);
+        assertEquals(1, result); // 2 odd (5,7), 1 even (2) → difference = 1
+    }
+
+    @Test
+    void testOddEvenDiff_MoreEven() {
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(1, 4);
+        map.put(2, 6);
+        map.put(3, 3);
+
+        int result = Practice.oddEvenDiff(map);
+        assertEquals(1, result); // 2 even (4,6), 1 odd (3) → difference = 1
+    }
+
+    @Test
+    void testOddEvenDiff_EmptyMap() {
+        Map<Integer, Integer> map = new HashMap<>();
+        int result = Practice.oddEvenDiff(map);
+        assertEquals(0, result); // empty map → difference = 0
+    }
+
+    @Test
+    void testOddEvenDiff_AllOdd() {
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(1, 1);
+        map.put(2, 3);
+        map.put(3, 5);
+
+        int result = Practice.oddEvenDiff(map);
+        assertEquals(3, result); // 3 odd, 0 even → difference = 3
     }
 
 }
