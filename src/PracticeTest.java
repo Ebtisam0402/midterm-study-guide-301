@@ -146,7 +146,7 @@ void testMaxDiffSetMixedValues() {
     }
 
     @Test
-    void testLongestWord_NoMatchingLetter() {
+    void testLongestWordNoMatchingLetter() {
         List<String> words = List.of("apple", "banana", "cherry");
         char letter = 'z';
 
@@ -165,7 +165,7 @@ void testMaxDiffSetMixedValues() {
 
 
     @Test
-    void testCountWords_SingleWord_ArrayList() {
+    void testCountWordsSingleWord_ArrayList() {
        Set<String> words = Set.of("apple");
         int result = Practice.countWordsInRange(words, 3, 6); // length >3 and <6
         assertEquals(1, result); // "apple" length is 5 → counted
@@ -179,8 +179,8 @@ void testMaxDiffSetMixedValues() {
     }
 
     //Find the difference between the how many odd and even numbers there are in:Values of HashMap
-        @Test
-    void testOddEvenDiff_MoreOdd() {
+    @Test
+    void testOddEvenDiffMoreOdd() {
         Map<Integer, Integer> map = new HashMap<>();
         map.put(1, 5);
         map.put(2, 7);
@@ -191,7 +191,7 @@ void testMaxDiffSetMixedValues() {
     }
 
     @Test
-    void testOddEvenDiff_MoreEven() {
+    void testOddEvenDiffMoreEven() {
         Map<Integer, Integer> map = new HashMap<>();
         map.put(1, 4);
         map.put(2, 6);
@@ -202,14 +202,14 @@ void testMaxDiffSetMixedValues() {
     }
 
     @Test
-    void testOddEvenDiff_EmptyMap() {
+    void testOddEvenDiffEmptyMap() {
         Map<Integer, Integer> map = new HashMap<>();
         int result = Practice.oddEvenDiff(map);
         assertEquals(0, result); // empty map → difference = 0
     }
 
     @Test
-    void testOddEvenDiff_AllOdd() {
+    void testOddEvenDiffAllOdd() {
         Map<Integer, Integer> map = new HashMap<>();
         map.put(1, 1);
         map.put(2, 3);
@@ -217,6 +217,27 @@ void testMaxDiffSetMixedValues() {
 
         int result = Practice.oddEvenDiff(map);
         assertEquals(3, result); // 3 odd, 0 even → difference = 3
+    }
+    //Find the second-largest number test in array
+    @Test
+    void testSecondLargestAllPositive() {
+        int[] nums = {8, 3, 15, 10, 6};
+        int result = Practice.secondLargest(nums);
+       
+         assertEquals(10, result); // largest = 15, second largest = 10
+    }
+
+    @Test
+    void testSecondLargestWithNegatives() {
+        int[] nums = {-10, -5, -2, -8};
+        int result = Practice.secondLargest(nums);
+        assertEquals(-5, result); // largest = -2, second largest = -5
+    }
+    @Test
+    void testSecondLargestTwoElements() {
+        int[] nums = {7, 9};
+        int result = Practice.secondLargest(nums);
+        assertEquals(7, result); // largest = 9, second largest = 7
     }
 
 }
