@@ -173,6 +173,29 @@ public static int oddEvenDiff(Map<Integer, Integer>map){
     return Math.abs(oddCount - evenCount);
 }
 
+//Find the second-largest number in: An Array
+public static int secondLargest(int[] nums) {
+    if (nums == null || nums.length < 2) {
+        throw new IllegalArgumentException("Array must have at least two elements");
+    }
+
+    int largest = Integer.MIN_VALUE;
+    int secondLargest = Integer.MIN_VALUE;
+
+    for (int num : nums) {
+        if (num > largest) {
+            // Found a new largest → push old largest down to secondLargest
+            secondLargest = largest;
+            largest = num;
+        } else if (num > secondLargest && num < largest) {
+            // Found a number between largest and secondLargest
+            secondLargest = num;
+        }
+    }
+
+    return secondLargest;
+}
+
 
 
     // TODO: Implement the other methods from the study guide AND tests for each one
